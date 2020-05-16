@@ -7,7 +7,6 @@ resources:
 - traefik-ingressroute.yaml
 - traefik-middleware.yaml
 - traefik-persistentvolumeclaim.yaml
-- traefik-secret.yaml
 - traefik-service.yaml
 - traefik-serviceaccount.yaml
 - traefik-tlsoption.yaml

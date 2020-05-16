@@ -1,5 +1,6 @@
 bases:
   - ../../base
+  - traefik-secret.yaml
 patchesStrategicMerge:
   - traefik-ingressroute.yaml
   - traefik-persistentvolumeclaim.yaml
