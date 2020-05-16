@@ -1,0 +1,18 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard-https
+  namespace: kube-system
+spec:
+  entrypoints:
+  - websecure
+  routes:
+  - match: Host(`traefik.n0secure.org`)
+    kind: Rule
+    services:
+    - name: traefik-dashboard
+      port: 8080
+    middlewares:
+    - name: traefik-dashboard-authentication
+  tls:
+    certResolver: letsencrypt

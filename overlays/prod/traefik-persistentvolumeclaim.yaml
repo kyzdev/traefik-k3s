@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: traefik-certs
+  namespace: kube-system
+  labels:
+    app: traefik-ingress
+spec:
+  storageClassName: managed-nfs-storage
