@@ -24,3 +24,7 @@ kubectl apply -k overlays/<env>
 # <env> must match your environment overlay
 kubectl delete -k overlays/<env>
 ```
+
+## Credits
+
+https://www.grottedubarbu.fr/traefik-2-k3s/
