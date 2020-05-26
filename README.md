@@ -5,20 +5,22 @@ A kubectl YAML to deploy a Traefik on Kubernetes
 ## Post-Installation
 
 You can tune the prod or dev Kustomize Overlay with :
-- traefik-deployment.yaml : to match your storage driver (in my example I use a NFS driver),
-- traefik-ingressroute.yaml : to match your FQDN.
+- traefik-persistentvolumeclaim.yaml : to match your storage driver for exemple,
+- traefik-ingressroute.yaml : to match your FQDN (for Traefik Dashboard).
 
 ## Installation
 
 The namespace used for this deployment is "kube-system". The TLSOption must stay in "default" namespace.
 
 ```bash
+# <env> must match your environment overlay
 git clone https://github.com/kyzdev/traefik-k3s.git
 cd traefik-k3s
-kubectl apply -k overlays/prod
+kubectl apply -k overlays/<env>
 ```
 ## Uninstallation
 
 ```bash
-kubectl delete -k overlays/prod
+# <env> must match your environment overlay
+kubectl delete -k overlays/<env>
 ```
