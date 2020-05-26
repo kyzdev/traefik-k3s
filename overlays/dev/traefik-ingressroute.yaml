@@ -7,10 +7,10 @@ spec:
   entrypoints:
   - websecure
   routes:
-  - match: Host(`traefik-dev.n0secure.org`)
+  - match: Host(`traefik.n0secure.org`)
     kind: Rule
     services:
     - name: traefik-dashboard
       port: 8080
-  tls:
-    certResolver: letsencrypt-staging
+    middlewares:
+    - name: traefik-dashboard-authentication

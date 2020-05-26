@@ -14,5 +14,3 @@ spec:
       port: 8080
     middlewares:
     - name: traefik-dashboard-authentication
-  tls:
-    certResolver: letsencrypt

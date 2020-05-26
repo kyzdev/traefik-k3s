@@ -19,29 +19,22 @@ spec:
       containers:
         - name: traefik
           image: traefik:2.2
-          args:
-            - --configFile=/config/traefik.toml
           volumeMounts:
-            - name: traefik-config
-              mountPath: /config/
-            - name: traefik-custom
-              mountPath: /custom/
-            - name: traefik-certs
-              mountPath: /certs/
+            - name: traefik-config-static
+              mountPath: /etc/traefik/
+            - name: traefik-persistent-storage
+              mountPath: /letsencrypt
           ports:
-            - name: http
+            - name: web
               containerPort: 80
-            - name: https
+            - name: websecure
               containerPort: 443
-            - name: dashboard
+            - name: admin
               containerPort: 8080
       volumes:
-        - name: traefik-config
-          configMap:
-            name: traefik-config
-        - name: traefik-custom
-          configMap:
-            name: traefik-custom
-        - name: traefik-certs
+        - name: traefik-persistent-storage
           persistentVolumeClaim:
-            claimName: traefik-certs
+            claimName: traefik-pv-claim
+        - name: traefik-config-static
+          configMap:
+            name: traefik-config-static
