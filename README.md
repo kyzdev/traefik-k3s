@@ -2,6 +2,8 @@
 
 A kubectl YAML to deploy a Traefik on Kubernetes
 
+This YAML use Kustomize to decline different <env> in overlays directory. Please tune your <env> directory, or create new one base on the common files in "base" directory. 
+
 ## Post-Installation
 
 You can tune the prod or dev Kustomize Overlay with :
