@@ -1,10 +1,11 @@
+---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: traefik-dashboard-https
   namespace: kube-system
 spec:
-  entrypoints:
+  entryPoints:
   - websecure
   routes:
   - match: Host(`traefik.anywhere.com`)

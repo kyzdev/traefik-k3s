@@ -1,16 +1,9 @@
+---
 apiVersion: traefik.containo.us/v1alpha1
 kind: TLSOption
 metadata:
   name: mytlsoption
   namespace: default
 spec:
-  minVersion: VersionTLS12
-  sniStrict: true
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: TLSOption
-metadata:
-  name: mintls13
-  namespace: default
-spec:
   minVersion: VersionTLS13
+  sniStrict: true

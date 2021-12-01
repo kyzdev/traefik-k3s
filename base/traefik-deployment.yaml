@@ -1,21 +1,24 @@
+---
 kind: Deployment
 apiVersion: apps/v1
 metadata:
   namespace: kube-system
-  name: traefik-ingress
+  name: traefik-ingress-controller
   labels:
-    app: traefik-ingress
+    app: traefik-ingress-controller
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: traefik-ingress
+      app: traefik-ingress-controller
   template:
     metadata:
       labels:
-        app: traefik-ingress
+        app: traefik-ingress-controller
+      annotations:
+        backup.velero.io/backup-volumes: traefik-persistent-storage
     spec:
-      serviceAccountName: traefik-ingress
+      serviceAccountName: traefik-ingress-controller
       containers:
         - name: traefik
           image: traefik:2.2

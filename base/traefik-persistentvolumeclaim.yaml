@@ -1,10 +1,11 @@
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: traefik-pv-claim
   namespace: kube-system
   labels:
-    app: traefik-ingress
+    app: traefik-ingress-controller
 spec:
   accessModes:
     - ReadWriteOnce

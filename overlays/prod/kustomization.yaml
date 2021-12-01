@@ -6,3 +6,7 @@ patches:
   - traefik-ingressroute.yaml
   - traefik-persistentvolumeclaim.yaml
   - traefik-configmap.yaml
+images:
+- name: traefik
+  newName: traefik
+  newTag: 2.5.3
